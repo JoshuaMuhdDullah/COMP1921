@@ -6,6 +6,8 @@ typedef struct
     int endPos[2];
 }maze;
 
+
+
 // Validate file
 int vaidateFile(char fileName[]) {
     // Checks if maze height and width within 5-100
@@ -90,7 +92,7 @@ int winCondition(maze currentMaze) {
 
 // Maze game
 int main(int argc, char *argv[]) {
-    if (argc != 1)
+    if (argc == 0)
     {
         printf("Usage: ./SkeletonCode <name>\n");
     }
