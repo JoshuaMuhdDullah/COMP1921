@@ -2,7 +2,7 @@
 
 # -- Testing Arguments --
 
-# Testing no args
+# Tests if no arguments passed it will report an error
 ./SkeletonCode > tmp
 if grep -q "Usage: ./SkeletonCode <name> <inputs>";
 then
@@ -13,7 +13,7 @@ fi
 
 # -- Validating Files --
 
-# entering a maze that doesnt exist
+# Tests if file path doesnt exist it will report an error
 ./SkeletonCode DoesntExist.txt > tmp
 if grep -q "File Doesn't Exist";
 then
@@ -21,7 +21,7 @@ then
 else
     echo "FAIL"
 
-# entering a maze with invalid character
+# Tests if a maze contains invalid characters it will report an error
 ./SkeletonCode InvalidCharacter.txt > tmp
 if grep -q "Maze contains invalid characters";
 then
@@ -29,7 +29,7 @@ then
 else
     echo "FAIL"
 
-# entering a maze that has invaluid width
+# Tests for mazes that contains an invalid height it will report an error
 ./SkeletonCode InvalidHeight.txt > tmp
 if grep -q "Maze is not rectangle";
 then
@@ -37,7 +37,7 @@ then
 else
     echo "FAIL"
 
-# entering a maze that has invaluid width
+# Tests for mazes that contains an invalid width it will report an error
 ./SkeletonCode InvalidHeight.txt > tmp
 if grep -q "Maze is not rectangle";
 then
@@ -45,7 +45,7 @@ then
 else
     echo "FAIL"
 
-# entering a maze with dimensions too big
+# Tests for maze with dimensions that are too large it will report an error
 ./SkeletonCode 105x5maze.txt > tmp
 if grep -q "Height and width out of range";
 then
@@ -53,7 +53,7 @@ then
 else
     echo "FAIL"
 
-# entering a maze with holes in wall
+# Tests if code accepts mazes with holes in the out wall, maze is valid
 ./SkeletonCode HolesInWall.txt
 if grep -q "Valid maze"
 then
