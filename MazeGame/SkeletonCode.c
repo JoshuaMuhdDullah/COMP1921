@@ -19,6 +19,9 @@ int vaidateFile(char fileName[]) {
     // Checks if maze contains only correct characters
     // else
         // printf("Maze contains invalid characters")
+        // return 1
+    // printf("Valid maze")
+    // return 0
 }
 
 // Inititialize maze
@@ -78,10 +81,10 @@ int playerMovement(char keyboardInput) {
                 // printf("player moved right\n");
             break;
         default:
-            //printf("Invalid input")
+            // printf("Invalid input")
             break;
     }
-}           
+}
 
 // Check win condition
 int winCondition(maze currentMaze) {
@@ -93,16 +96,11 @@ int winCondition(maze currentMaze) {
     }
 }
 
-// Check player position
-void checkPosition(maze currentMaze) {
-    // prints the current position array
-}
-
 // Maze game
 int main(int argc, char *argv[]) {
     if (argc == 0)
     {
-        printf("Usage: ./SkeletonCode <name>\n");
+        printf("Usage: ./SkeletonCode <name> <inputs>\n");
     }
     // if(validateFile(argv[0]) == 1)
         // return 1

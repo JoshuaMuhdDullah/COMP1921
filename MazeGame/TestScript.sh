@@ -4,16 +4,7 @@
 
 # Testing no args
 ./SkeletonCode > tmp
-if grep -q "Usage: ./SkeletonCode <name>";
-then
-    echo "PASS"
-else
-    echo "FAIL"
-fi
-
-# Testing inva args
-./SkeletonCode x x > tmp
-if grep -q "Usage: ./SkeletonCode <name>";
+if grep -q "Usage: ./SkeletonCode <name> <inputs>";
 then
     echo "PASS"
 else
@@ -22,33 +13,49 @@ fi
 
 # -- Validating Files --
 
-# entering a file that doesnt exist
-./SkeletonCode doesntExist.txt > tmp
+# entering a maze that doesnt exist
+./SkeletonCode DoesntExist.txt > tmp
 if grep -q "File Doesn't Exist";
 then
     echo "PASS"
 else
     echo "FAIL"
 
-# entering a file with invalid character
-./SkeletonCode invalidCharacter.txt > tmp
+# entering a maze with invalid character
+./SkeletonCode InvalidCharacter.txt > tmp
 if grep -q "Maze contains invalid characters";
 then
     echo "PASS"
 else
     echo "FAIL"
 
-# entering a file that isnt rectangular
-./SkeletonCode notRectangular.txt > tmp
+# entering a maze that has invaluid width
+./SkeletonCode InvalidHeight.txt > tmp
 if grep -q "Maze is not rectangle";
 then
     echo "PASS"
 else
     echo "FAIL"
 
-# entering a file with dimensions too big
+# entering a maze that has invaluid width
+./SkeletonCode InvalidHeight.txt > tmp
+if grep -q "Maze is not rectangle";
+then
+    echo "PASS"
+else
+    echo "FAIL"
+
+# entering a maze with dimensions too big
 ./SkeletonCode 105x5maze.txt > tmp
 if grep -q "Height and width out of range";
+then
+    echo "PASS"
+else
+    echo "FAIL"
+
+# entering a maze with holes in wall
+./SkeletonCode HolesInWall.txt
+if grep -q "Valid maze"
 then
     echo "PASS"
 else
@@ -173,14 +180,14 @@ else
 # -- testing win condition --
 
 # testing valid wins
-./SkeletonCode 5x5maze.txt s a > tmp
+./SkeletonCode 5x5maze.txt 5x5navigation.txt > tmp
 if grep -q "you have won!" 
 then
     echo "PASS"
 else
     echo "FAIL"
 
-./SkeletonCode 10x10maze.txt s s s s d d d s s s d d d d > tmp
+./SkeletonCode 10x10maze.txt 10x10navigation.txt > tmp
 if grep -q "you have won!"
 then
     echo "PASS"
