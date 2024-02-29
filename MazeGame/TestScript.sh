@@ -161,7 +161,7 @@ then
 else
     echo "FAIL"
 
-# testing moving back after trying to go out of bounds
+# testing moving back after trying to go out of bounds as it code might incorrectly calculate current pos
 ./SkeletonCode 10x6maze.txt d d d d d d d d d a > tmp
 if grep -q "player moved left"
 then
@@ -169,7 +169,7 @@ then
 else
     echo "FAIL"
 
-# testing moving back after trying move into a wall
+# testing moving back after trying move into a wall as it code might incorrectly calculate current pos
 ./SkeletonCode 5x5maze.txt w w s > tmp
 if grep -q "player moved down"
 then
