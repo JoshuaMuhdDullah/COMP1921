@@ -6,25 +6,26 @@ typedef struct
     int endPos[2];
 }maze;
 
-
-
 // Validate file
 int vaidateFile(char fileName[]) {
     // Checks if maze height and width within 5-100
-        // return 0 
     // else
         // printf("Height and width out of range\n")
         // return 1
     // Checks if maze is rectangle
-        // return
     // else
         // printf("Maze is not rectangle\n")
         // return 1
+    // Checks if maze contains only correct characters
+    // else
+        // printf("Maze contains invalid characters")
 }
 
 // Inititialize maze
 maze initializeMaze(char fileName[]) {
-    // Opens File
+    // try open file
+    // if file path doesnt exist 
+        //printf("File Doesn't Exist")
     // Reads File
     // Puts data in appropriate fields on maze struct
     // returns the maze
@@ -37,7 +38,8 @@ void displayMaze() {
             // Check if end of row
                 // Print newline
 
-            // Print out current element of maze
+            // printf("map of maze")
+            // Print out current maze
 }
 
 // Player movement
@@ -76,6 +78,7 @@ int playerMovement(char keyboardInput) {
                 // printf("player moved right\n");
             break;
         default:
+            //printf("Invalid input")
             break;
     }
 }           
@@ -88,6 +91,11 @@ int winCondition(maze currentMaze) {
     } else{
         // return 0;
     }
+}
+
+// Check player position
+void checkPosition(maze currentMaze) {
+    // prints the current position array
 }
 
 // Maze game
